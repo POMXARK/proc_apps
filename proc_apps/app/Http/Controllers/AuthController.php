@@ -10,14 +10,15 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
-    public function register(RegisterUserRequest $data) {
-
-        $user = User::create([
+    public function register(RegisterUserRequest $data)
+    {
+        $user = User::query()->create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password'])
         ]);
 
+        /** @var $user User */
         $token = $user->createToken('apiToken')->plainTextToken;
 
         return response([
@@ -28,7 +29,7 @@ class AuthController extends Controller
 
     public function login(LoginUserRequest $data)
     {
-        $user = User::where('email', $data['email'])->first();
+        $user = User::query()->where('email', $data['email'])->first();
 
         if (!$user || !Hash::check($data['password'], $user->password)) {
             return response([
