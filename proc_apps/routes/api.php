@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\StmtController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,3 +17,6 @@ Route::get( '/some_url', function () {
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::apiResource('stmts', StmtController::class);
+});
