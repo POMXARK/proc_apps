@@ -91,6 +91,7 @@ final class StmtControllerTest extends TestCase
             'name' => 'name',
             'email' => 'email@email.email',
             'message' => 'updated message',
+            'comment' => 'comment',
         ];
 
         $response = $this->put(route('stmts.update', $stmt), $data);

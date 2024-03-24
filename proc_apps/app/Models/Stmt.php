@@ -15,7 +15,7 @@ class Stmt extends Model
     use SoftDeletes;
 
     /** @var array */
-    public $fillable = ['name', 'email', 'message', 'status'];
+    public $fillable = ['name', 'email', 'message', 'status', 'comment'];
 
     /** @var array */
     protected array $dates = [

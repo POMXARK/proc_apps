@@ -26,6 +26,7 @@ class UpdateStmtRequest extends FormRequest
             'name' => 'required',
             'email' => 'required',
             'message' => 'required',
+            'comment' => 'required',
         ];
     }
 }
