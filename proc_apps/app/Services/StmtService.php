@@ -3,9 +3,11 @@
 namespace App\Services;
 
 use App\Models\Stmt;
+use App\Notifications\StmtNotification;
 use App\Repositories\StmtRepositoryInterface;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Notification;
 use Tests\Services\StmtServiceTest;
 
 /**
@@ -57,7 +59,12 @@ class StmtService
     public function update(Stmt $stmt, array $data): Stmt
     {
         $data['status'] = Stmt::STATUS_RESOLVED;
-        return $this->stmtRepository->updateFromArray($stmt, $data);
+        $model = $this->stmtRepository->updateFromArray($stmt, $data);
+
+        Notification::route('mail', $stmt->email)
+            ->notify(app(StmtNotification::class, $stmt->toArray()));
+
+        return $model;
     }
 
     /**

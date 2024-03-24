@@ -3,10 +3,15 @@
 namespace Tests\Services;
 
 use App\Models\Stmt;
+use App\Models\User;
+use App\Notifications\StmtNotification;
 use App\Services\StmtService;
 use Exception;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Notifications\AnonymousNotifiable;
+use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
+use Throwable;
 
 /**
  * Тесты сервиса заявок.
@@ -72,6 +77,7 @@ final class StmtServiceTest  extends TestCase
      */
     public function testUpdateSuccess(): void
     {
+        Notification::fake();
         $stmtService = app(StmtService::class);
         $stmt = Stmt::factory()->create();
         $data = [
@@ -99,5 +105,33 @@ final class StmtServiceTest  extends TestCase
         $stmtService->delete($stmt);
 
         $this->assertSoftDeleted('stmts', ['id' => $stmt->id]);
+    }
+
+    /**
+     * Успешная отправка уведомления.
+     *
+     * @throws Throwable
+     */
+    public function testMailQueueSuccess(): void
+    {
+        Notification::fake();
+        /** @var Stmt $stmt */
+        $stmt = Stmt::factory()->create();
+
+
+        Notification::route('mail', $stmt->email)->notify(app(StmtNotification::class, [
+            'stmt' => $stmt,
+        ]));
+
+        Notification::assertSentTo(app(AnonymousNotifiable::class), StmtNotification::class,
+            function ($notification, $channels, $notifiable) use ($stmt) {
+                $mail = $notification->toMail();
+                $body = view($mail->view, $mail->viewData)->render();
+
+                return
+                    str_contains($body, 'Ответ по заявке:') and
+                    $notifiable->routes['mail'] ==  $stmt->email;
+            }
+        );
     }
 }

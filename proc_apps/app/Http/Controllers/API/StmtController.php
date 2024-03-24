@@ -68,8 +68,6 @@ class StmtController extends Controller
      */
     public function update(UpdateStmtRequest $request, Stmt $stmt): JsonResponse
     {
-        $stmt->updateOrFail($request->validated());
-
         return  response()->json(['data' =>  $this->stmtService->update($stmt, $request->validated())]);
     }
 

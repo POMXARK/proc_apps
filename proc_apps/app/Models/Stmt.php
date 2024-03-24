@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property $id
+ * @property $comment Комментарий
+ * @property $email Почта
+ * @property $name Имя пользователя
+ * @property $message Сообщение пользователя
  */
 class Stmt extends Model
 {
