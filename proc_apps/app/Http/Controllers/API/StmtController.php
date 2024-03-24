@@ -10,10 +10,13 @@ use App\Services\StmtService;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Tests\Http\API\StmtControllerTest;
 use Throwable;
 
 /**
  * Контролер заявки.
+ *
+ * @see StmtControllerTest
  */
 class StmtController extends Controller
 {
