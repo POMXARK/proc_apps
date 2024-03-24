@@ -78,6 +78,7 @@ final class StmtServiceTest  extends TestCase
             'name' => 'name',
             'email' => 'email@email.email',
             'message' => 'messages',
+            'comment' => 'comment'
         ];
 
         $stmtService->update($stmt, $data);
