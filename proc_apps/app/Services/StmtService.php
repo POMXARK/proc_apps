@@ -6,9 +6,12 @@ use App\Models\Stmt;
 use App\Repositories\StmtRepositoryInterface;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
+use Tests\Services\StmtServiceTest;
 
 /**
  * Сервис заявок.
+ *
+ * @see StmtServiceTest
  */
 class StmtService
 {
@@ -17,7 +20,7 @@ class StmtService
      *
      * @var StmtRepositoryInterface
      */
-    private $stmtRepository;
+    private StmtRepositoryInterface $stmtRepository;
 
     public function __construct(StmtRepositoryInterface $stmtRepository)
     {
