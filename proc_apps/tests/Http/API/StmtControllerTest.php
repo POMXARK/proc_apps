@@ -6,6 +6,7 @@ use App\Models\Stmt;
 use App\Models\User;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Validation\ValidationException;
 use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
@@ -85,6 +86,7 @@ final class StmtControllerTest extends TestCase
      */
     public function testUpdateSuccess(): void
     {
+        Notification::fake();
         Sanctum::actingAs(User::factory()->create());
         $stmt = Stmt::factory()->create();
         $data = [
