@@ -10,6 +10,8 @@ use App\Services\StmtService;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\BodyParam;
 use Tests\Http\API\StmtControllerTest;
 use Throwable;
 
@@ -18,6 +20,7 @@ use Throwable;
  *
  * @see StmtControllerTest
  */
+#[Authenticated]
 class StmtController extends Controller
 {
     /**
@@ -48,6 +51,7 @@ class StmtController extends Controller
     /**
      * Создание заявки.
      */
+    #[BodyParam("message", "string")]
     public function store(StoreStmtRequest $request): JsonResponse
     {
        return  response()->json(['data' =>  $this->stmtService->create($request->validated())]);

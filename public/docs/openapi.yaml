@@ -7,45 +7,6 @@ servers:
   -
     url: 'http://localhost'
 paths:
-  /api/user:
-    get:
-      summary: ''
-      operationId: getApiUser
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-  /api/some_url:
-    get:
-      summary: ''
-      operationId: getApiSome_url
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: 'Token is wrong'
-      tags:
-        - Endpoints
-      security: []
   /api/register:
     post:
       summary: ''
@@ -65,20 +26,24 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: id
+                  example: et
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: dickinson.estell@example.org
+                  example: augusta34@example.org
                 password:
                   type: string
                   description: ''
-                  example: '=U`w=Aad]|TqeGIvb'
+                  example: '89v?zgFz]-"/]5wk?+'
+                password_confirmation:
+                  type: string
+                  description: ''
+                  example: modi
               required:
                 - name
                 - email
                 - password
-      security: []
+                - password_confirmation
   /api/login:
     post:
       summary: ''
@@ -98,37 +63,15 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: qbashirian@example.com
+                  example: kwunsch@example.com
                 password:
                   type: string
                   description: ''
-                  example: 'AFY]$^-(B96<*,'
+                  example: Pau6b|aeZyA7Y
               required:
                 - email
                 - password
-      security: []
   /api/stmts:
-    get:
-      summary: 'Все заявки с фильтрацией по статусу и дате.'
-      operationId: ''
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
     post:
       summary: 'Создание заявки.'
       operationId: ''
@@ -147,42 +90,20 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: enim
+                  example: non
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: blanca.connelly@example.net
+                  example: prosacco.devan@example.com
                 message:
                   type: string
                   description: ''
-                  example: quisquam
+                  example: aspernatur
               required:
                 - name
                 - email
                 - message
-      security: []
   '/api/stmts/{id}':
-    get:
-      summary: 'Вернуть заявку.'
-      operationId: ''
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
     put:
       summary: 'Обновить заявку.'
       operationId: ''
@@ -201,25 +122,24 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: ullam
+                  example: pariatur
                 email:
                   type: string
                   description: ''
-                  example: est
+                  example: dolor
                 message:
                   type: string
                   description: ''
-                  example: beatae
+                  example: nihil
                 comment:
                   type: string
                   description: ''
-                  example: consequatur
+                  example: illo
               required:
                 - name
                 - email
                 - message
                 - comment
-      security: []
     delete:
       summary: 'Удалить заявку.'
       operationId: ''
@@ -228,13 +148,71 @@ paths:
       responses: {  }
       tags:
         - Endpoints
-      security: []
     parameters:
       -
         in: path
         name: id
         description: 'The ID of the stmt.'
-        example: 1
+        example: 4
+        required: true
+        schema:
+          type: integer
+  '/api/doSomething/{param}':
+    post:
+      summary: 'Do something'
+      operationId: doSomething
+      description: 'This endpoint allows you to do something.'
+      parameters:
+        -
+          in: query
+          name: speed
+          description: 'How fast the thing should be done. Can be `slow` or `fast`.'
+          example: fast
+          required: false
+          schema:
+            type: string
+            description: 'How fast the thing should be done. Can be `slow` or `fast`.'
+            example: fast
+      responses:
+        200:
+          description: 'When the thing was done smoothly.'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  hey: 'ho ho ho'
+                properties:
+                  hey:
+                    type: string
+                    example: 'ho ho ho'
+                    description: 'Who knows?'
+      tags:
+        - 'The group the endpoint belongs to. Can be a new group or an existing group.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                something:
+                  type: array
+                  description: 'The things we should do.'
+                  example:
+                    - 'string 1'
+                    - 'string 2'
+                  items:
+                    type: string
+              required:
+                - something
+      security: []
+    parameters:
+      -
+        in: path
+        name: param
+        description: 'A URL param for no reason.'
+        example: 2
         required: true
         schema:
           type: integer
@@ -242,3 +220,15 @@ tags:
   -
     name: Endpoints
     description: ''
+  -
+    name: 'The group the endpoint belongs to. Can be a new group or an existing group.'
+    description: "A description for the group. You don't need to set this for every endpoint; once is enough."
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+security:
+  -
+    default: []

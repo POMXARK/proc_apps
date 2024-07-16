@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "5c61509e-e79d-4c90-9183-43397e162efa",
+        "_postman_id": "13dbd971-cce5-4d24-96f3-ea8354ace987",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -19,102 +19,6 @@
             "name": "Endpoints",
             "description": "",
             "item": [
-                {
-                    "name": "GET api\/user",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/user",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/user"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "GET api\/some_url",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/some_url",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/some_url"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "content-type",
-                                    "value": "text\/html; charset=UTF-8"
-                                },
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 200,
-                            "body": "Token is wrong",
-                            "name": ""
-                        }
-                    ]
-                },
                 {
                     "name": "POST api\/register",
                     "request": {
@@ -137,12 +41,9 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"id\",\"email\":\"dickinson.estell@example.org\",\"password\":\"=U`w=Aad]|TqeGIvb\"}"
+                            "raw": "{\"name\":\"et\",\"email\":\"augusta34@example.org\",\"password\":\"89v?zgFz]-\\\"\\\/]5wk?+\",\"password_confirmation\":\"modi\"}"
                         },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": []
                 },
@@ -168,62 +69,11 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"qbashirian@example.com\",\"password\":\"AFY]$^-(B96<*,\"}"
+                            "raw": "{\"email\":\"kwunsch@example.com\",\"password\":\"Pau6b|aeZyA7Y\"}"
                         },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": []
-                },
-                {
-                    "name": "\u0412\u0441\u0435 \u0437\u0430\u044f\u0432\u043a\u0438 \u0441 \u0444\u0438\u043b\u044c\u0442\u0440\u0430\u0446\u0438\u0435\u0439 \u043f\u043e \u0441\u0442\u0430\u0442\u0443\u0441\u0443 \u0438 \u0434\u0430\u0442\u0435.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/stmts",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/stmts"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
                 },
                 {
                     "name": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0437\u0430\u044f\u0432\u043a\u0438.",
@@ -247,70 +97,11 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"enim\",\"email\":\"blanca.connelly@example.net\",\"message\":\"quisquam\"}"
+                            "raw": "{\"name\":\"non\",\"email\":\"prosacco.devan@example.com\",\"message\":\"aspernatur\"}"
                         },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": []
-                },
-                {
-                    "name": "\u0412\u0435\u0440\u043d\u0443\u0442\u044c \u0437\u0430\u044f\u0432\u043a\u0443.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/stmts\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/stmts\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the stmt."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
                 },
                 {
                     "name": "\u041e\u0431\u043d\u043e\u0432\u0438\u0442\u044c \u0437\u0430\u044f\u0432\u043a\u0443.",
@@ -324,7 +115,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "4",
                                     "description": "The ID of the stmt."
                                 }
                             ]
@@ -342,12 +133,9 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"ullam\",\"email\":\"est\",\"message\":\"beatae\",\"comment\":\"consequatur\"}"
+                            "raw": "{\"name\":\"pariatur\",\"email\":\"dolor\",\"message\":\"nihil\",\"comment\":\"illo\"}"
                         },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": []
                 },
@@ -363,7 +151,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "17",
                                     "description": "The ID of the stmt."
                                 }
                             ]
@@ -380,17 +168,85 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": []
+                }
+            ]
+        },
+        {
+            "name": "The group the endpoint belongs to. Can be a new group or an existing group.",
+            "description": "A description for the group. You don't need to set this for every endpoint; once is enough.",
+            "item": [
+                {
+                    "name": "You can add a subgroup, too.",
+                    "description": null,
+                    "item": [
+                        {
+                            "name": "Do something",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/doSomething\/:param",
+                                    "query": [
+                                        {
+                                            "key": "speed",
+                                            "value": "fast",
+                                            "description": "How fast the thing should be done. Can be `slow` or `fast`.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "{{baseUrl}}\/api\/doSomething\/:param?speed=fast",
+                                    "variable": [
+                                        {
+                                            "id": "param",
+                                            "key": "param",
+                                            "value": "2",
+                                            "description": "A URL param for no reason."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"something\":[\"string 1\",\"string 2\"]}"
+                                },
+                                "description": "This endpoint allows you to do something.",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\"hey\":\"ho ho ho\"}",
+                                    "name": "When the thing was done smoothly."
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
     ],
     "auth": {
-        "type": "noauth"
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "key",
+                "type": "string"
+            }
+        ]
     }
 }

@@ -6,10 +6,12 @@ use App\Http\Requests\LoginUserRequest;
 use App\Http\Requests\RegisterUserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Knuckles\Scribe\Attributes\BodyParam;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
+    #[BodyParam("password_confirmation", "string")]
     public function register(RegisterUserRequest $data)
     {
         $user = User::query()->create([
